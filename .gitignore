@@ -1,0 +1,20 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Build folders
+bin/
+obj/
+
+# Test results
+TestResults/
+
+# Rider / VSCode
+.idea/
+.vscode/
+
+# Logs e sistema
+*.log
+Thumbs.db
+.DS_Store
