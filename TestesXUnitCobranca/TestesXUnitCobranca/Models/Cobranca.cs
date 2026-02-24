@@ -1,4 +1,4 @@
-﻿namespace TestesXUnitCobranca.Dominio.Models
+﻿namespace TestesXUnitCobranca.Models
 {
     public class Cobranca
     {

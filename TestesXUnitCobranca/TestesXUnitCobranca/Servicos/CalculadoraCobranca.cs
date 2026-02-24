@@ -1,6 +1,6 @@
-﻿using TestesXUnitCobranca.Dominio.Models;
+﻿using TestesXUnitCobranca.Models;
 
-namespace TestesXUnitCobranca.Dominio.Servicos
+namespace TestesXUnitCobranca.Servicos
 {
     public class CalculadoraCobranca
     {
