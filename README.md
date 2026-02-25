@@ -87,15 +87,14 @@ Contém testes unitários que garantem a confiabilidade das regras.
 Os testes foram implementados utilizando xUnit para garantir a confiabilidade das regras de negócio.
 
 Os testes cobrem:
-```bash
-✔ cálculo de multa
-✔ cálculo de juros
-✔ aplicação de desconto
-✔ cenários sem atraso
-✔ valores inválidos
-✔ exceções esperadas
-✔ cenários extremos
-```
+✔ cálculo de multa  
+✔ cálculo de juros  
+✔ aplicação de desconto  
+✔ cenários sem atraso  
+✔ valores inválidos  
+✔ exceções esperadas  
+✔ cenários extremos  
+
 
 ### Exemplos testados
 
