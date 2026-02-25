@@ -53,7 +53,7 @@ Valor atualizado = Valor original + Multa + Juros
 
 
 ## 🧱 Estrutura da Solução
-
+```bash
 TestesXUnitCobranca.sln
 │
 ├── TestesXUnitCobranca
@@ -61,6 +61,7 @@ TestesXUnitCobranca.sln
 │   └── Services
 │
 └── TestesXUnitCobranca.Tests
+```
 
 
 ### 📦 TestesXUnitCobranca
@@ -86,7 +87,7 @@ Contém testes unitários que garantem a confiabilidade das regras.
 Os testes foram implementados utilizando xUnit para garantir a confiabilidade das regras de negócio.
 
 Os testes cobrem:
-
+```bash
 ✔ cálculo de multa
 ✔ cálculo de juros
 ✔ aplicação de desconto
@@ -94,6 +95,7 @@ Os testes cobrem:
 ✔ valores inválidos
 ✔ exceções esperadas
 ✔ cenários extremos
+```
 
 ### Exemplos testados
 
