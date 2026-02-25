@@ -69,8 +69,81 @@ namespace TextesXUnitCobranca.Tests
         [Fact]
         public void DeveLancarErroParaDescontoNegativo()
         {
-            Assert.Throws<ArgumentException>(() =>
-                _calc.AplicarDesconto(100, -5));
+            Assert.Throws<ArgumentException>(() => _calc.AplicarDesconto(100, -5));
+        }
+
+        [Fact]
+        public void DeveAplicarMultaQuandoHouverAtraso()
+        {
+            var cobranca = new Cobranca
+            {
+                ValorOriginal = 100,
+                DiasAtraso = 5,
+                PercentualMulta = 2
+            };
+
+            var multa = _calc.CalcularMulta(cobranca);
+
+            Assert.Equal(2, multa);
+        }
+
+        [Fact]
+        public void NaoDeveGerarJurosQuandoDiasAtrasoForZero()
+        {
+            var cobranca = new Cobranca
+            {
+                ValorOriginal = 100,
+                DiasAtraso = 0,
+                PercentualJurosDia = 1
+            };
+
+            var juros = _calc.CalcularJuros(cobranca);
+
+            Assert.Equal(0, juros);
+        }
+
+        [Theory]
+        [InlineData(0)]
+        [InlineData(-1)]
+        public void NaoDeveAceitarValorNegativo(decimal valor)
+        {
+            Assert.Throws<ArgumentException>(() => _calc.AplicarDesconto(valor, 10));
+        }
+
+        [Fact]
+        public void DeveLancarErroQuandoDescontoForNegativo()
+        {
+            var ex = Assert.Throws<ArgumentException>(() =>
+                _calc.AplicarDesconto(100, -10));
+
+            Assert.Equal("Desconto inválido", ex.Message);
+        }
+
+        [Theory]
+        [InlineData(100, 10, 90)]
+        [InlineData(200, 10, 180)]
+        [InlineData(350, 20, 280)]
+        public void DeveAplicarDescontoCorretamente(decimal valor, decimal desconto, decimal esperado)
+        {
+            var resultado = _calc.AplicarDesconto(valor, desconto);
+
+            Assert.Equal(esperado, resultado);
+        }
+
+        [Fact]
+        public void ValorFinalNuncaDeveSerNegativo()
+        {
+            var resultado = _calc.AplicarDesconto(100, 200);
+
+            Assert.True(resultado >= 0);
+        }
+
+        [Fact]
+        public void DeveArredondarParaDuasCasasDecimais()
+        {
+            var valor = _calc.AplicarDesconto(100.555m, 0);
+
+            Assert.Equal(100.56m, valor);
         }
     }
 }
